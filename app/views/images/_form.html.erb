@@ -21,6 +21,11 @@
     <%= form.text_area :description, placeholder: "Enter a description", :cols => "50", :rows => "10" %>
   </div>
 
+  <div class="checkbox-analyze-with-rekognition" style="padding-bottom:15px">
+    Analyze with AWS Rekognition?
+    <%= form.check_box :analyze_with_rekognition %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

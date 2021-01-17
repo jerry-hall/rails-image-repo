@@ -66,8 +66,8 @@ class ImagesController < ApplicationController
       redirect_to images_path
     else
       @parameter = params[:search].downcase
-      puts(@parameter)
-      @results = Image.all.where("lower(name) LIKE ? OR lower(description) LIKE ?", "%#{@parameter}%", "%#{@parameter}%")
+      search_params = "lower(name) LIKE ? OR lower(description) LIKE ? OR lower(tags) LIKE ?"
+      @results = Image.all.where(search_params, "%#{@parameter}%", "%#{@parameter}%", "%#{@parameter}%")
     end
   end
 
@@ -79,6 +79,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.fetch(:image, {}).permit(:name, :description, :image_blob)
+      params.fetch(:image, {}).permit(:name, :description, :image_blob, :analyze_with_rekognition, :tags)
     end
 end
