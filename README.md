@@ -12,7 +12,7 @@ The application supports drag-and-drop image uploads.
 **Search**:
 It also supports searching by name, description, and tags.
 
-![image-upload-search.gif](readme-assets/image-upload-search.gif)
+<img src="readme-assets/image-upload-search.gif" width="50%" />
 
 **Image Recognition with AWS Rekognition**:
 Checking the box `Analyze with AWS Rekognition?` will use AWS Rekognition to generate a list of searchable tags. You must configure `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in your environment variables.
@@ -24,6 +24,7 @@ You can edit and delete images that have been uploaded.
 The following trade-offs were made for speed-of-delivery:
 - No front-end styling or framework was used
 - File are currently stored as ActiveStorage blobs
+- AWS Rekognition requires images stored in base64
 - Application is currently running in development environment
 - No multi-image uploads (for the purposes of allowing tags)
 
@@ -36,6 +37,7 @@ I opted to use Rails as it is the primary backend used at Shopify.
 ## Future Improvements
 - Implement styling (Bootstrap, MaterialUI, etc.)
 - Connect ActiveStorage to cloud storage (S3 or GCP)
+- Complete AWS Rekognition implementation by using `active-storage-base64` gem 
 - Containerize Rails application
 - Refactor code to implement multi-image uploads
 ## Gems Used
