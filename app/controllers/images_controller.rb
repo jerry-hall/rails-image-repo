@@ -67,7 +67,7 @@ class ImagesController < ApplicationController
     else
       @parameter = params[:search].downcase
       puts(@parameter)
-      @results = Image.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+      @results = Image.all.where("lower(name) LIKE ? OR lower(description) LIKE ?", "%#{@parameter}%", "%#{@parameter}%")
     end
   end
 
