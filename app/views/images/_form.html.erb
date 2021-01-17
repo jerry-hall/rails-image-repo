@@ -12,6 +12,7 @@
   <% end %>
   
   <%= form.drag_and_drop_file_field :image_blob, nil, accept: 'image/png, image/jpeg, image/gif, image/tiff' %>
+  <%= form.text_field :name, placeholder: "Enter a filename", rows: 10, class: "form-control" %>
 
   <div class="actions">
     <%= form.submit %>
