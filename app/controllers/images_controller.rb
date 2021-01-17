@@ -61,6 +61,16 @@ class ImagesController < ApplicationController
     end
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to images_path
+    else
+      @parameter = params[:search].downcase
+      puts(@parameter)
+      @results = Image.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image

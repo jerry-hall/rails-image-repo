@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+Search
+<%= form_tag('images/search', :method => "get") do %>
+<div class="input-group">
+  <%= search_field_tag :search, params[:search], placeholder: "Enter search params", class: "form-control" %>
+  <%= button_tag "Search for Image", :name => nil %>
+</div>
+<% end %>
+
 <h1>Images</h1>
 
 <table>
