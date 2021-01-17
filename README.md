@@ -40,6 +40,8 @@ I opted to use Rails as it is the primary backend used at Shopify.
 - Complete AWS Rekognition implementation by using `active-storage-base64` gem 
 - Containerize Rails application
 - Refactor code to implement multi-image uploads
+- Improve searching experience (ie. implement Elasticsearch)
+
 ## Gems Used
 - `active_storage_drag_and_drop`
 - `aws-sdk-rekognition`
