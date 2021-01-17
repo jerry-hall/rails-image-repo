@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= form.drag_and_drop_file_field :image_blob, nil, accept: 'image/png, image/jpeg, image/gif, image/tiff' %>
 
   <div class="actions">
     <%= form.submit %>
