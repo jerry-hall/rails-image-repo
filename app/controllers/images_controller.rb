@@ -56,8 +56,18 @@ class ImagesController < ApplicationController
   def destroy
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to images_url, notice: 'Image was successfully deleted.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    if params[:search].blank?
+      redirect_to images_path
+    else
+      @parameter = params[:search].downcase
+      puts(@parameter)
+      @results = Image.all.where("lower(name) LIKE ? OR lower(description) LIKE ?", "%#{@parameter}%", "%#{@parameter}%")
     end
   end
 
@@ -69,12 +79,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.fetch(:image, {}).permit(:image_blob)
-    end
-
-    def validate_image_blob
-      puts("hello")
-      # errors.add(:image, "test")
-      return params.has_key?(:image_blob)
+      params.fetch(:image, {}).permit(:name, :description, :image_blob)
     end
 end

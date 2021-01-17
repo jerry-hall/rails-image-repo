@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
-<%= @image.image_blob.filename %>
+<%= @image.name %>
 <%= image_tag  @image.image_blob, style: "width: 200px; display: block" %>
-
+<div id="description">
+    Description
+    <div class="description-block">
+        <%= @image.description %>
+    </div>
+</div>
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', images_path %>
