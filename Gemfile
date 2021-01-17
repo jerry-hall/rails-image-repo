@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Define own gems
 gem 'active_storage_drag_and_drop'
+gem 'aws-sdk-rekognition'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
