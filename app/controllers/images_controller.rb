@@ -66,8 +66,8 @@ class ImagesController < ApplicationController
       redirect_to images_path
     else
       @parameter = params[:search].downcase
-      puts(@parameter)
-      @results = Image.all.where("lower(name) LIKE ? OR lower(description) LIKE ?", "%#{@parameter}%", "%#{@parameter}%")
+      search_params = "lower(name) LIKE ? OR lower(description) LIKE ? OR lower(tags) LIKE ?"
+      @results = Image.all.where(search_params, "%#{@parameter}%", "%#{@parameter}%", "%#{@parameter}%")
     end
   end
 
