@@ -9,6 +9,6 @@ class Image < ApplicationRecord
     end
 
     def has_name?
-        self.name = self.image_blob.filename if self.name.empty? 
+        self.name = self.image_blob.filename if self.name.empty? and self.image_blob.attached?
     end
 end
